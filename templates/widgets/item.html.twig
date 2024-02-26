@@ -1,0 +1,24 @@
+{% set article_show =  path('article_show', {'id': article.id})%}
+
+<article class="mb-5">
+    <div class="row">
+       <div class="col-md-5">
+
+            {% if article.image %}
+                <a class="text-decoration-none"  href="{{ article_show }}">
+                    <img src="/uploads/{{ article.image|raw}}" loading="lazy" width="300" height="200" >
+                </a>
+            {% endif %}
+        </div>
+
+        <div class="col-md-7">
+            <h2>
+                <a class="text-decoration-none" href="{{article_show}}">{{article.title|raw}}</a>
+            </h2>
+            <span class="fs-4">{{article.description|raw}}</span><br/>
+            <span class="fs-6 text-end fst-italic"> Catégorie : {{article.category.title|raw}}</span>  <br/>
+            <span class="fs-6 text-end fst-italic"> Auteur : {{article.author|raw}}</span><br/>
+            <span class="fs-6 text-end fst-italic"> Créer le {{article.date|date('d/m/y')}}</span> 
+        </div>
+    </div>
+</article>
