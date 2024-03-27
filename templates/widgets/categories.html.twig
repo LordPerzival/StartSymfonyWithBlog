@@ -1,0 +1,25 @@
+
+<div class="col-md-8  border-bottom">
+    <h3>MENU</h3>
+    <a class="text-decoration-none" href="{{path('home_show')}}">Accueil</a><br/>
+    <a class="text-decoration-none" href="{{path('addArticle')}}">Ajouter un article</a><br/>
+    <a class="text-decoration-none" href="{{path('addCategory')}}">Ajouter une categorie</a><br/>
+</div>
+
+<h3 class="fst-italic">Categories</h3>
+{% if category != null%}
+{% for category in category %}
+<div class="rounded">
+    <ol class="list-unstyled mb-0">
+        <li>
+            
+            <a class="text-decoration-none" href="{{path('category_show', {'id': category.id})}}"> {{category.title}}</a>
+        </li>
+
+</div>
+{% endfor %} 
+
+{% else%}
+<span class="fst-italic">Aucune categorie enregistrée vous pouvez ajouter une categorie
+    <a class="text-decoration-none" href="{{path('addCategory')}}"> ici</a><br/></span>
+{% endif %} 
