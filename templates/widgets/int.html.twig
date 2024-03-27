@@ -1,0 +1,9 @@
+{% if article != null%}
+{% for article in article %}
+{%  include 'widgets/item.html.twig' with { article } %}
+{% endfor %} 
+{% else %}
+<span class="fst-italic">Aucun article enregistré vous pouvez ajouter un article
+    <a class="text-decoration-none" href="{{path('addArticle')}}"> ici</a><br/>
+</span>
+{% endif %} 

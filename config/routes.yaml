@@ -1,3 +1,40 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+ #HOME CONTROLLER
+home_show:
+        path: /
+        controller: App\Controller\HomeController::index
+        methods: GET
+
+  
+#ARTICLE CONTROLLER
+article_show:
+  path: /article/{id}
+  controller: App\Controller\ArticleController::index
+  methods: GET
+
+
+#CATEGORY CONTROLLER
+category_show:
+  path: /category/{id}
+  controller: App\Controller\CategoryController::index
+  methods: GET
+
+
+addArticle:
+  path: /ajouter_un_article
+  controller: App\Controller\HomeController::addArticle
+  methods:    [GET,POST]
+
+editArticle:
+  path: /modifier_un_article/{id}
+  controller: App\Controller\HomeController::edit
+  methods:    [GET,POST]
+    
+delArticle:
+  path: /article/{id}/supprimer
+  controller: App\Controller\HomeController::delete
+  methods:    [GET,POST]
+
+addCategory:
+  path: /ajouter_une_categorie
+  controller: App\Controller\HomeController::addCategory
+  methods:    [GET,POST]
