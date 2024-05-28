@@ -1,0 +1,51 @@
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Modifier - {{article.title}}{% endblock %}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    </head>
+    <body>
+        {% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<nav class="align-items-center margin-left-50%" style="margin-left: 30%;"  role="button">
+        <h2>
+            Modifier {{article.title}}
+        </h2>
+</nav>
+<div class="container" style="margin-left: 30%; background-color: aquamarine; width: 30%;">
+    <div class="row" style="margin-left: 1%;">
+        <div class="row col-sm-() col-form-label">
+            {{ form_start(articleForm, {
+                'attr': {
+                    'class': 'col-lg-5 align-items-center' 
+                    }
+                })
+            }}
+
+            {{form_row(articleForm.title)}}
+            {{form_row(articleForm.description)}}
+            {{form_row(articleForm.content)}}
+             {{form_row(articleForm.image)}}
+            {{form_row(articleForm.category)}}
+            {{form_row(articleForm.author)}}
+        </div>
+    </div>
+    
+    {{form_row(articleForm.date, {'attr' : {'class': 'col-sm-8'} } )}}
+    
+    <button type="submit" class="btn btn-primary col-sm-8" style="margin-top: 1%;">Modifier</button>
+       
+    {{ form_end(articleForm) }}
+</div>
+
+
+{% endblock %}
+    </body>
+</html>

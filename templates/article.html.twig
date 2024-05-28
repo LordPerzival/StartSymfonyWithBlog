@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article - {{article.title}}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<nav role="button" aria-expanded="false">
+    <div class="container" style="position: fixed; background-color: white;">
+        <h2>
+            {{article.title}}
+        </h2>
+    </div>
+</nav>
+
+
+ <main class="container">
+        <div class="row">
+<!--CORPS-->
+            <div  class="col-md-8">        
+                <div id="article_list">
+                    <h5 class="container fst-italic mb-4 pb-4 border-bottom" style="margin-top: 6%;"> {{article.description}}</h5>  
+                    {% if article.image %}
+                        <a class="text-decoration-none"><img src="{{ asset ('uploads/')}}{{ article.image|raw}}" loading="lazy" width="750" height="350"></a>
+                    {% endif %}
+                </div>
+                <br/>
+                <h5 class="container fst-italic mb-4 pb-4 border-bottom"> {{article.content}}</h5>  
+                <a class="text-decoration-none mb-4 pb-4" href="{{path('editArticle', {'slug': article.slug})}}">Modifier l'article</a>
+                <a class="text-decoration-none" href="{{path('delArticle', {'slug': article.slug})}}" style="margin-left: 60%;">Supprimer l'article</a>
+             </div>
+
+<!--ONGLETS DE DROIT-->
+                <div class="col-md-4" style="margin-left: 80%; height: 100%; background-color: azure; position:fixed;" >
+                    {% include 'widgets/categories.html.twig' %}
+                </div>
+            </div>  
+        </div> 
+</main>
+
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <span class="copyright fst-italic">@ 20{{'now'|date('y')}} Swiss eco concept. Tous droits reservés.</span>
+
+        </div>
+
+    </footer>   
+
+</div>
+{% endblock %}
